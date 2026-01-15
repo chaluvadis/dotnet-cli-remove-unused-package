@@ -1,0 +1,37 @@
+## Ignore build artifacts
+bin/
+obj/
+
+## Ignore .NET tool manifest lock file
+.config/
+
+## Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Ignore IDE files
+.vs/
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+## Ignore test results
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+## Ignore NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+## Ignore temporary files
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
