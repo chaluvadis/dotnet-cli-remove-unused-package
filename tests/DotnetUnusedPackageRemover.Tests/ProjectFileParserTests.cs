@@ -3,7 +3,7 @@ using Xunit;
 
 namespace DotnetUnusedPackageRemover.Tests;
 
-public class ProjectFileParserTests
+public class ProjectFileParserTests : IDisposable
 {
     private readonly string _testDataDir;
 
@@ -11,6 +11,14 @@ public class ProjectFileParserTests
     {
         _testDataDir = Path.Combine(Path.GetTempPath(), "DotnetUnusedPackageRemoverTests", Guid.NewGuid().ToString());
         Directory.CreateDirectory(_testDataDir);
+    }
+
+    public void Dispose()
+    {
+        if (Directory.Exists(_testDataDir))
+        {
+            Directory.Delete(_testDataDir, recursive: true);
+        }
     }
 
     [Fact]

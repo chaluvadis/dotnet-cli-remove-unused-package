@@ -4,7 +4,7 @@ using Xunit;
 
 namespace DotnetUnusedPackageRemover.Tests;
 
-public class DependencyAnalyzerTests
+public class DependencyAnalyzerTests : IDisposable
 {
     private readonly string _testDataDir;
 
@@ -12,6 +12,14 @@ public class DependencyAnalyzerTests
     {
         _testDataDir = Path.Combine(Path.GetTempPath(), "DotnetUnusedPackageRemoverTests", Guid.NewGuid().ToString());
         Directory.CreateDirectory(_testDataDir);
+    }
+
+    public void Dispose()
+    {
+        if (Directory.Exists(_testDataDir))
+        {
+            Directory.Delete(_testDataDir, recursive: true);
+        }
     }
 
     [Fact]
